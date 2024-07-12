@@ -13,7 +13,8 @@ env:
   
 jobs:
   build:
-    permissions: write
+    permissions: 
+      packages: write
     runs-on: ubuntu-latest
 
     strategy:
