@@ -1,0 +1,55 @@
+version: "3"
+services:
+  postgresDB:
+    container_name: mdz-project-assistant-postgresDB-dev
+#    platform: linux/amd64 #for platform error on Apple M1 chips
+    restart: unless-stopped
+    env_file:
+      - .env
+    image: postgres:14.11-bullseye
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - mdz-project-assistant-dev-data:/var/lib/postgresql/data/ #using a volume
+#    ports:
+#      - "${EXT_PORT_DB}:5432"
+
+  pgadmin:
+    container_name: mdz-project-assistant-pgadmin-dev
+    image: dpage/pgadmin4:8.3
+    ports:
+      - "${EXT_PORT_PGADMIN}:80"
+    depends_on:
+      postgresDB:
+        condition: service_healthy
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    volumes:
+      - ./docker/pgadmin/servers.json:/pgadmin4/servers.json
+
+
+  nuxt:
+#    image: gitlab.ergosign-projects.com:5050/uux/processautomation:nuxt
+    image: "mdz-project-assistant-nuxt"
+    build:
+      context: .
+      dockerfile: docker/nuxt/Dockerfile.prod
+    ports:
+      - "${EXT_PORT_NODE}:3000"
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgresDB:5432/${POSTGRES_DB}?schema=public #prisma migration url
+      MIDDLEWARE_API_BASEPATH: https://rpa-middleware.uux-nord.de
+    depends_on:
+      postgresDB:
+        condition: service_healthy
+
+volumes:
+  mdz-project-assistant-dev-data:

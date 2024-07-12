@@ -1,0 +1,13 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "Project Assistant",
+      "Group": "Servers",
+      "Port": 5432,
+      "Username": "project-assistant",
+      "Host": "postgresDB",
+      "SSLMode": "prefer",
+      "MaintenanceDB": "postgres"
+    }
+  }
+}

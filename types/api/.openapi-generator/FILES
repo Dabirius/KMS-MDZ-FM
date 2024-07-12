@@ -1,0 +1,6 @@
+.gitignore
+model/advisor.ts
+model/chatMessage.ts
+model/customer.ts
+model/document.ts
+model/models.ts

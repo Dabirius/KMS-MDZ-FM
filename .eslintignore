@@ -1,0 +1,15 @@
+node_modules/
+
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+static
+assets/
+package.json
+package-lock.json
+nuxt.config.ts
+
+.eslintrc.json

@@ -1,0 +1,43 @@
+@use "../color-definitions" as cd;
+
+.theme-default {
+  --color-primary: #{cd.$color-brand-blue-100};
+  --color-secondary: #{cd.$color-brand-turquoise-100};
+
+  --color-text-primary: #{cd.$color-base-black-100};
+  --color-text-on-dark: #{cd.$color-base-white-100};
+  --color-text-on-secondary: #{cd.$color-base-black-60};
+  --color-text-secondary-on-dark: #{cd.$color-base-black-5};
+  --color-text-chat: #{cd.$color-base-black-60};
+  --color-text-helper: #{cd.$color-base-black-60};
+  --color-text-disabled: #{cd.$color-base-black-40};
+  --color-text-error: #{cd.$color-brand-red-100};
+
+  --color-adornment-default: #{cd.$color-base-black-100};
+  --color-adornment-disabled: #{cd.$color-base-black-40};
+  --color-adornment-on-dark: #{cd.$color-base-white-100};
+
+  --color-background-main: #{cd.$color-base-black-5};
+  --color-background-panel: #{cd.$color-base-black-80};
+  --color-background-chat: #{cd.$color-base-white-100};
+  --color-background-menu: #{cd.$color-base-white-100};
+  --color-background-card: #{cd.$color-base-white-100};
+
+  --color-action-primary-default: #{cd.$color-brand-orange-100};
+  --color-action-primary-hover: #{cd.$color-brand-orange-30};
+  --color-action-primary-pressed-ripple: #{cd.$color-base-white-transparency-40};
+  --color-action-primary-focused: #{cd.$color-brand-orange-100};
+  --color-action-primary-disabled: #{cd.$color-base-black-30};
+
+  --color-action-background-on-dark-default: #{cd.$color-base-black-transparency-20};
+  --color-action-background-on-dark-hover: #{cd.$color-base-black-transparency-40};
+  --color-action-background-on-dark-pressed: #{cd.$color-base-black-transparency-40};
+  --color-action-background-on-dark-selected: #{cd.$color-base-black-70};
+  --color-action-background-on-dark-disabled: #{cd.$color-base-black-30};
+
+  --color-action-background-on-light-default: #{cd.$color-base-black-transparency-10};
+  --color-action-background-on-light-hover: #{cd.$color-base-black-transparency-30};
+  --color-action-background-on-light-pressed: #{cd.$color-base-black-transparency-30};
+  --color-action-background-on-light-selected: #{cd.$color-base-black-30};
+  --color-action-background-on-light-disabled: #{cd.$color-base-black-30};
+}

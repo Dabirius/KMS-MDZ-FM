@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Entity {
+  id           Int           @id @default(autoincrement())
+  name         String        @db.VarChar(255)
+  advisor      Advisor?      @relation(references: [id], fields: [advisorId], onDelete: SetNull)
+  advisorId    Int?
+  relatedChats ChatMessage[]
+  Document     Document[]
+}
+
+model Advisor {
+  id        Int      @id @default(autoincrement())
+  firstName String   @db.VarChar(255)
+  lastName  String   @db.VarChar(255)
+  userName  String   @db.VarChar(255)
+  email     String   @db.VarChar(255)
+  entities  Entity[]
+}
+
+model Document {
+  id                Int           @id @default(autoincrement())
+  uuid              String        @unique @default(uuid())
+  createdAt         DateTime      @default(now()) @db.Timestamptz(3)
+  type              Documenttype  @default(DOCUMENT)
+  knownToMiddleware Boolean       @default(false)
+  name              String        @db.VarChar(255)
+  data              Bytes         @db.ByteA
+  textContent       String        @db.Text
+  entity            Entity?       @relation(fields: [entityId], references: [id], onDelete: Cascade)
+  entityId          Int?
+  relatedChats      ChatMessage[]
+}
+
+model ChatMessage {
+  id                   Int        @id @default(autoincrement())
+  sender               Sendertype @default(SYSTEM)
+  message              String     @db.Text
+  timestamp            DateTime   @default(now()) @db.Timestamptz(3)
+  relatesToAllEntities Boolean    @default(false)
+  entity               Entity?    @relation(fields: [entityId], references: [id], onDelete: Cascade)
+  entityId             Int?
+  relatedDocuments     Document[]
+}
+
+enum Sendertype {
+  ADVISOR
+  SYSTEM
+}
+
+enum Documenttype {
+  DATA_SHEET
+  DOCUMENT
+}

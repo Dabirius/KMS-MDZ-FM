@@ -1,0 +1,26 @@
+@forward "color/global-colors";
+@forward "global-fonts";
+@forward "global-typography";
+@forward "global-spacing";
+@forward "global-shadows";
+@forward "global-utils";
+
+html {
+  overflow-y: hidden;
+}
+
+.page .content {
+  overflow: hidden;
+}
+
+/* This gives the mat icons the correct sizing */
+.material-design-icon {
+  display: inline-flex;
+  aspect-ratio: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+* {
+  box-sizing: border-box;
+}

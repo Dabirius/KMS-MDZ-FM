@@ -1,0 +1,31 @@
+@mixin button-ripple($size: 73px) {
+  &::before {
+    content: "";
+    @include rippleEffect();
+  }
+  &:active {
+    &::before {
+      @include showRipple($size);
+    }
+  }
+}
+
+@mixin rippleEffect() {
+  border-radius: 50%;
+  background-color: var(--ripple-color, rgba(0, 0, 0, 0.12));
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  border: none;
+  width: 0px;
+  height: 0px;
+  transition:
+    width 0.2s,
+    height 0.2s;
+}
+
+@mixin showRipple($size) {
+  width: $size;
+  height: $size;
+}

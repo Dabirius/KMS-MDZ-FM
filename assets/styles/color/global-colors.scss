@@ -1,0 +1,114 @@
+@forward "themes/default";
+
+$color-spec-primary: #000000;
+$color-text-on-primary: #ffffff;
+$color-text-on-secondary: rgba(0, 0, 0, 0.87);
+$color-background-action-primary-hover: #2866e5;
+$color-background-action-secondary-default: #f2f2f2;
+$color-background-action-secondary-hover: #fafafa;
+$color-background-action-disabled: rgba(0, 0, 0, 0.12);
+$color-ripple-secondary-pressed: rgba(0, 0, 0, 0.12);
+$color-text-primary: #2c71fe;
+$color-border-action-primary-default: #2c71fe8a;
+$color-background-action-primary-inverted-hover: #2c71fe0f;
+$color-ripple-primary-pressed: #2c71fe42;
+$color-text-action-disabled: #00000042;
+$color-border-action-disabled: #0000001f;
+$color-border-action-secondary-default: #000000de;
+$color-background-action-secondary-hover: #fafafa;
+$color-pb-black: #1e1e1c;
+$color-pb-white: #ffffff;
+$color-pb-primary-orange: #e69636;
+$color-pb-primary-orange-30: rgba(230, 150, 54, 0.3);
+$color-pb-primary-orange-10: #e696361a;
+$color-pb-secondary-red: #d12d40;
+$color-pb-secondary-yellow: #f8d648;
+$color-pb-dark-grey: #3e3e3e;
+$color-pb-grey: #666666;
+$color-pb-light-grey: #d9d9d9;
+$color-light-text-helper: rgba(0, 0, 0, 0.6);
+$color-light-color-text-error: #f95859;
+$color-light-border-fComp-soft: rgba(0, 0, 0, 0.26);
+$color-light-border-fComp-disabled: rgba(0, 0, 0, 0.26);
+$color-border-fComp-hover: rgba(0, 0, 0, 0.87);
+$color-light-text-helper: rgba(0, 0, 0, 0.6);
+$color-light-text-disabled: rgba(0, 0, 0, 0.38);
+$color-text-on-dark: #ffffff;
+$color-text-helper: #666666;
+$general-size-height-comp-m: 56px;
+$color-background-action-on-dark-default: rgba(0, 0, 0, 0.2);
+$color-background-action-on-dark-hover: rgba(0, 0, 0, 0.4);
+$color-background-action-on-dark-selected: #555555;
+$color-background-action-on-light-default: rgba(0, 0, 0, 0.1);
+$color-background-action-on-light-hover: rgba(0, 0, 0, 0.3);
+$color-background-action-on-light-selected: #d9d9d9;
+$color-adornment-disabled: #d9d9d9;
+$color-background-panel: #333333;
+$color-action-secondary-disabled: #d9d9d9;
+
+$color-ripple-inverted-pressed: rgba(255, 255, 255, 0.26);
+
+$color-primary: var(--color-primary);
+$color-secondary: var(--color-secondary);
+
+$color-text-primary: var(--color-text-primary);
+$color-text-on-dark: var(--color-text-on-dark);
+$color-text-on-secondary: var(--color-text-on-secondary);
+$color-text-secondary-on-dark: var(--color-text-secondary-on-dark);
+$color-text-chat: var(--color-text-chat);
+$color-text-helper: var(--color-text-helper);
+$color-text-disabled: var(--color-text-disabled);
+$color-text-error: var(--color-text-error);
+
+$color-adornment-default: var(--color-adornment-default);
+$color-adornment-disabled: var(--color-adornment-disabled);
+$color-adornment-on-dark: var(--color-adornment-on-dark);
+
+$color-background-main: var(--color-background-main);
+$color-background-panel: var(--color-background-panel);
+$color-background-chat: var(--color-background-chat);
+$color-background-menu: var(--color-background-menu);
+$color-background-card: var(--color-background-card);
+
+$color-action-primary-default: var(--color-action-primary-default);
+$color-action-primary-hover: var(--color-action-primary-hover);
+$color-action-primary-pressed-ripple: var(
+  --color-action-primary-pressed-ripple
+);
+$color-action-primary-focused: var(--color-action-primary-focused);
+$color-action-primary-disabled: var(--color-action-primary-disabled);
+
+$color-action-background-on-dark-default: var(
+  --color-action-background-on-dark-default
+);
+$color-action-background-on-dark-hover: var(
+  --color-action-background-on-dark-hover
+);
+$color-action-background-on-dark-pressed: var(
+  --color-action-background-on-dark-pressed
+);
+$color-action-background-on-dark-selected: var(
+  --color-action-background-on-dark-selected
+);
+$color-action-background-on-dark-disabled: var(
+  --color-action-background-on-dark-disabled
+);
+
+$color-action-background-on-light-default: var(
+  --color-action-background-on-light-default
+);
+$color-action-background-on-light-hover: var(
+  --color-action-background-on-light-hover
+);
+$color-action-background-on-light-pressed: var(
+  --color-action-background-on-light-pressed
+);
+$color-action-background-on-light-selected: var(
+  --color-action-background-on-light-selected
+);
+$color-action-background-on-light-disabled: var(
+  --color-action-background-on-light-disabled
+);
+$color-action-background-secondary-default: var(
+  --color-action-background-secondary-default
+);
