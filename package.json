@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
+    "marked": "^13.0.2",
     "pdf-text-reader": "4.0.1",
     "pinia": "^2.1.7",
     "vue-material-design-icons": "^5.2.0"

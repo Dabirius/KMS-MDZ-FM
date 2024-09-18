@@ -24,3 +24,11 @@ html {
 * {
   box-sizing: border-box;
 }
+
+.chat-item {
+
+  ol, ul {
+    list-style-position: outside;
+    padding-left: 20px;
+  }
+}

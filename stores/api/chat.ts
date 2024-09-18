@@ -1,5 +1,13 @@
 import { ref } from "vue";
 import { ChatMessageItem } from "~/server/api/entities/[entityId]/chat/index.get";
+import { marked } from 'marked';
+import fs from 'fs'
+
+
+marked.use({
+  breaks: true,
+  async: false
+})
 
 export const useChat = defineStore("Chat", () => {
   const chatMessages = ref<Array<ChatMessageItem>>([]);
@@ -12,7 +20,16 @@ export const useChat = defineStore("Chat", () => {
     const { data } = await useFetch<Array<ChatMessageItem>>(
       `/api/entities/${entityId}/chat`,
     );
-    chatMessages.value = data.value || [];
+    chatMessages.value = data.value?.map((chatItem) => ({ ...chatItem, message: marked.parse(chatItem.message) as string })) || [];
+
+    // For testing the parsing remove the comment
+    // const val = await fetch('/test.md');
+    // const text = await val.text();
+    // console.log(text);
+    // chatMessages.value.push({
+    //   ...data.value![0],
+    //   message: marked.parse(text) as string
+    // })
   }
 
   async function fetchNewestChatmessages(
@@ -33,7 +50,9 @@ export const useChat = defineStore("Chat", () => {
     );
 
     if (data && data.value && data.value?.length && data.value?.length > 0) {
-      chatMessages.value.push(...data.value);
+      const values = data.value.map((chatItem) => ({ ...chatItem, message: marked.parse(chatItem.message) as string }))
+      chatMessages.value.push(...values);
+      // console.log(chatMessages.value)
       return 1;
     } else {
       return -1;
