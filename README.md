@@ -4,7 +4,8 @@ The Process Automation Software runs as a docker stack.
 
 ## Installation
 
-Copy the `docker-compose.prod.yaml` onto your server and create a `.env` with the following contents besides it.
+Copy the `docker-compose.yaml` onto your server and create a `.env` with the following contents besides it.
+
 
 ```text
 HOST=0.0.0.0
