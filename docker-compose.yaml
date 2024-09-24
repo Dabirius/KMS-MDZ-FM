@@ -4,7 +4,7 @@ services:
     image: qdrant/qdrant
     restart: unless-stopped
     volumes:
-      - ./docker/qdrant:/qdrant/storage:z
+      - .:/qdrant/storage:z
 
   middleware_docker:
     image: ghcr.io/dabirius/kms-mdz-fm-middleware:latest
@@ -15,7 +15,7 @@ services:
       timeout: 5s
       retries: 5
     volumes:
-      - /home/privatbuero:/app
+      - .:/app
     depends_on:
       - qdrant
 
