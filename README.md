@@ -4,9 +4,9 @@ The Process Automation Software runs as a docker stack.
 
 ## Installation
 
-Copy the `docker-compose.yaml` onto your server and create a `.env` with the following contents besides it.
+Copy the `docker-compose.yaml` onto your server and create a `.env` and a `data.json` with the following contents besides it.
 
-
+`.env`
 ```text
 HOST=0.0.0.0
 DATABASE_SSL=false
@@ -31,6 +31,44 @@ EXT_PORT_PGADMIN=1339
 EXT_PORT_NODE=3000
 
 COMPOSE_PROJECT_NAME=rpa
+```
+
+`data.json`
+```json
+{
+  "open_ai_api_key": "",
+  "llm": {
+    "open_ai_llm": false,
+    "llm_url": "https://your-custom-llm.com/api/v1/chat/completions",
+    "llm_post_body": {
+      "comment": "<Should be adjusted to your API endpoint. If open_ai_llm is true, model is needed.>",
+      "model": "your-model"
+    },
+    "llm_post_header": {
+      "comment": "<Should be adjusted to your API endpoint. If open_ai_llm is true, the bearer is needed.>",
+      "Content-Type": "application/json",
+      "comment2": "<Optional, depending on your setup>",
+      "Authorization": "Bearer your_custom_api_key" 
+    },
+    "system_prompt": "You are a highly knowledgeable AI assistant.",
+    "pre_prompt": "You are an assistant designed to help with document searches. Answer the questions based on the documents."
+  },
+  "embeddings": {
+    "comment": "<Set to false for own embedding model>",
+    "open_ai_embeddings": false,
+    "comment2": "<Needed when open_ai_embeddings is true>",
+    "embedding_model": "",
+    "comment3": "<Adjust to the input dimension of your embedding model>",
+    "embedding_dimension": 3072, 
+    "qdrant_collection": "your_collection_name",
+    "comment4": "<Add own embedding endpoint here if open_ai_embeddings is false. Example endpoint is in multilingual_e5.py>",
+    "url_embeddings": "https://your-custom-embedding-service.com/api/embeddings"
+  },
+  "search": {
+    "comment": "<Can be adjusted, however it depends on the max context length of your LLM.>",
+    "top_k": 5
+  }
+}
 ```
 
 ## Startup
