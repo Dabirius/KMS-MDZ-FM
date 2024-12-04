@@ -7,7 +7,7 @@ The Process Automation Software runs as a docker stack.
 Copy the `docker-compose.yaml` onto your server and create a `.env` and a `data.json` with the following contents besides it.
 
 `.env`
-```text
+```shell
 HOST=0.0.0.0
 DATABASE_SSL=false
 
@@ -28,7 +28,7 @@ DATABASE_URL=postgres://project-assistant:mdz@localhost:5432/project-assistant?s
 
 EXT_PORT_DB=5432
 EXT_PORT_PGADMIN=1339
-EXT_PORT_NODE=3000
+EXT_PORT_NODE=3000 # public port, application will be served at http://localhost:3000
 
 COMPOSE_PROJECT_NAME=rpa
 ```
@@ -79,3 +79,5 @@ Upon complete Setup, the Software can be start with docker compose
 docker compose pull
 docker compose up -d
 ```
+
+The Application will be running at `http://localhost:3000`.
